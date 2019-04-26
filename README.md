@@ -5,7 +5,7 @@ MERN stack is the idea of using Javascript/Node for fullstack web development.
 
 ## clone or download
 ```terminal
-$ git clone https://github.com/amazingandyyy/mern-use-mobx.git
+$ git clone https://github.com/amazingandyyy/mern-stack.git
 $ npm i
 ```
 
@@ -78,7 +78,7 @@ $ npm run deploy:heroku
 
 ### After creating heroku
 
-remember to update the file of [client/webpack.prod.js](https://github.com/amazingandyyy/mern-use-mobx/blob/master/client/webpack.prod.js)
+remember to update the file of [client/webpack.prod.js](https://github.com/amazingandyyy/mern-stack/blob/master/client/webpack.prod.js)
 ```javascript
  'API_URI': JSON.stringify('https://your-super-amazing-heroku-app.herokuapp.com')
 ```
@@ -114,7 +114,7 @@ After signing in user can go to account route and make request to token-protecte
 
 ## BUGs or comments
 
-[Create new Issues](https://github.com/amazingandyyy/mern-use-mobx/issues) (preferred)
+[Create new Issues](https://github.com/amazingandyyy/mern-stack/issues) (preferred)
 
 Email Me: amazingandyyy@gmail.com (welcome, say hi)
 
