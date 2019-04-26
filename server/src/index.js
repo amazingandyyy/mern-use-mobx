@@ -5,8 +5,10 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import routers from './routes';
 import config from './config';
+import Middlewares from './api/middlewares'
+import Authentication from './api/authentication'
+import UserRouter from './user/router'
 
 if(!process.env.JWT_SECRET) {
     const err = new Error('No JWT_SECRET in env variable, check instructions: https://github.com/amazingandyyy/mern-use-mobx#prepare-your-secret');
@@ -27,7 +29,12 @@ app.use(cors({
 app.use(morgan('dev'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/', routers);
+app.get('/ping', (req, res) => res.send('pong'))
+app.get('/', (req, res) => res.json({'source': 'https://github.com/amazingandyyy/mern-use-mobx'}))
+app.post('/signup', Authentication.signup)
+app.post('/signin', Authentication.signin)
+app.get('/auth-ping', Middlewares.loginRequired, (req, res) => res.send('connected'))
+app.use('/user', Middlewares.loginRequired, UserRouter)
 
 app.use((err, req, res, next) => {
     console.log('Error:', err.message);
